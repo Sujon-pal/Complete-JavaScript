@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Template Literals, String Methods & Properties</title>
+  <script src="script.js"></script>
+  <style>
+    body { font-family: cursive; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px; }
+    code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+    h1, h2, h3 { color: #2c3e50; }
+  </style>
+</head>
+<body>
+  <h1>📝 Template Literals, String Methods & Properties</h1>
+
+  <h2>📌 Strings are Indexed</h2>
+  <p>Strings act like arrays of characters, so you can access each character by its index:</p>
+  <p>Expression: <code>'Hello World'[1]</code></p>
+  <p>Result: <code>'e'</code></p>
+  <p><strong>Important:</strong> Strings are <em>immutable</em> → you can't change a character directly:</p>
+  <code>
+    let str = 'Hello';<br>
+    str[0] = 'Y'; // ❌ won't change 'H' to 'Y'
+  </code>
+
+  <h2>🎉 Template Literals</h2>
+  <p>Template literals use backticks <code>`</code> instead of quotes, and allow:</p>
+  <ul>
+    <li>Multi-line strings without <code>\n</code></li>
+    <li>Embedding variables: <code>${variable}</code></li>
+    <li>Embedding expressions: <code>${1+2}</code></li>
+  </ul>
+  <p>Example:</p>
+  <code>
+    let name = "Sujon";<br>
+    let age = 20;<br>
+    let message = `Hello, ${name}! Next year you'll be ${age+1}.`;<br>
+    console.log(message); // Hello, Sujon! Next year you'll be 21.
+  </code>
+
+  <h2>📏 String Property</h2>
+  <ul>
+    <li><code>length</code> — gives the number of characters</li>
+    <p>Example: <code>"Hello".length // 5</code></p>
+  </ul>
+
+  <h2>🔧 Methods (Without Argument)</h2>
+  <ul>
+    <li><code>toUpperCase()</code> → "hello".toUpperCase() → "HELLO"</li>
+    <li><code>toLowerCase()</code> → "HELLO".toLowerCase() → "hello"</li>
+    <li><code>trim()</code> → removes spaces from both ends</li>
+    <li><code>trimStart()</code> → removes spaces from start only</li>
+    <li><code>trimEnd()</code> → removes spaces from end only</li>
+    <li><code>repeat(n)</code> → repeats the string n times</li>
+  </ul>
+
+  <h2>🛠 Methods (With Argument)</h2>
+  <ul>
+    <li><code>includes(substring)</code> → checks if contains text</li>
+    <li><code>indexOf(substring)</code> → returns position (or -1 if not found)</li>
+    <li><code>replace(old, new)</code> → replaces first match</li>
+    <li><code>replaceAll(old, new)</code> → replaces all matches</li>
+    <li><code>concat(otherString)</code> → joins strings</li>
+    <li><code>padStart(length, padStr)</code> → adds padding at start</li>
+    <li><code>padEnd(length, padStr)</code> → adds padding at end</li>
+    <li><code>charAt(index)</code> → returns character at index</li>
+    <li><code>charCodeAt(index)</code> → returns ASCII code of character</li>
+    <li><code>split(separator)</code> → splits into array</li>
+    <li><code>slice(start, end)</code> → cuts part of string</li>
+    <li><code>startsWith(substring)</code> → checks start</li>
+    <li><code>endsWith(substring)</code> → checks end</li>
+  </ul>
+
+  <h2>✨ Extra Useful Methods</h2>
+  <ul>
+    <li><code>substring(start, end)</code> → similar to slice but can’t use negative indexes</li>
+    <li><code>substr(start, length)</code> → get part of string (deprecated but still works)</li>
+    <li><code>localeCompare(other)</code> → compares two strings (returns -1, 0, or 1)</li>
+    <li><code>match(regex)</code> → find matches using regular expressions</li>
+    <li><code>search(regex)</code> → search by regex, returns index</li>
+  </ul>
+
+  <h2>🚀 Tips to Learn Easily</h2>
+  <ul>
+    <li>Read method names: they sound like what they do (<code>trim</code>, <code>slice</code>, <code>replace</code>)</li>
+    <li>Try them in browser console or online playground</li>
+    <li>Use template literals whenever you add variables or need multi-line text</li>
+  </ul>
+
+  <p>🔗 <a href="https://www.w3schools.com/jsref/jsref_obj_string.asp" target="_blank">Learn More (W3Schools)</a></p>
+</body>
+</html>

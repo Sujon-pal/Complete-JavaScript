@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Dialog Boxes | Alert, Confirm & Prompt | In Depth</title>
+  <script src="script.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      line-height: 1.6;
+      color: #333;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    pre {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-left: 4px solid #3498db;
+      overflow-x: auto;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin: 0.3rem;
+      border: none;
+      border-radius: 4px;
+      background: #3498db;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript Dialog Boxes — <code>alert</code>, <code>confirm</code>, and <code>prompt</code></h1>
+  <p>Dialog boxes are built-in browser methods used to interact with users. They are simple, modal (block further code execution), and each serves a specific purpose.</p>
+
+  <h2>1️⃣ <code>alert()</code> — Show a simple message</h2>
+  <p>Displays a message and waits for the user to click "OK". Does <strong>not</strong> return anything.</p>
+  <button onclick="showAlert()">Try alert()</button>
+  <pre><code>function showAlert() {
+  alert("Welcome! This is an alert box.");
+}</code></pre>
+
+  <h2>2️⃣ <code>confirm()</code> — Ask for confirmation</h2>
+  <p>Shows a message with "OK" and "Cancel". Returns <code>true</code> if the user clicks OK, <code>false</code> if Cancel.</p>
+  <button onclick="showConfirm()">Try confirm()</button>
+  <pre><code>function showConfirm() {
+  let result = confirm("Do you want to continue?");
+  console.log("User clicked:", result);
+}</code></pre>
+
+  <h2>3️⃣ <code>prompt()</code> — Ask for user input</h2>
+  <p>Shows an input field with "OK" and "Cancel". Returns the text the user types or <code>null</code> if Cancel.</p>
+  <button onclick="showPrompt()">Try prompt()</button>
+  <pre><code>function showPrompt() {
+  let name = prompt("What is your name?");
+  console.log("User entered:", name);
+}</code></pre>
+
+  <h2>⚡ Combining all three together</h2>
+  <p>This example uses all three dialog boxes in a flow: welcome alert → confirm → prompt → final message.</p>
+  <button onclick="fullDemo()">Run full demo</button>
+  <pre><code>function fullDemo() {
+  alert("Welcome to our full demo!");
+
+  let wantsToContinue = confirm("Do you want to continue?");
+
+  if (wantsToContinue) {
+    let userName = prompt("Great! What is your name?");
+
+    if (userName !== null && userName.trim() !== "") {
+      alert("Hello, " + userName + "! Nice to meet you.");
+    } else {
+      alert("You didn't enter your name, but that's okay!");
+    }
+
+  } else {
+    alert("Maybe next time. Goodbye!");
+  }
+}</code></pre>
+
+  <h2>🧠 Key points to remember</h2>
+  <ul>
+    <li><strong>Modal:</strong> They pause other code until user responds.</li>
+    <li><strong>Very limited styling:</strong> You cannot change colors, fonts, etc.</li>
+    <li><strong>Simple use cases:</strong> Good for quick messages or small inputs.</li>
+    <li>For complex designs, use custom dialogs built with HTML, CSS, and JS.</li>
+  </ul>
+
+  <h2>✅ Summary</h2>
+  <ul>
+    <li><code>alert(message)</code> → Show a simple message.</li>
+    <li><code>confirm(message)</code> → Ask yes/no → returns <code>true</code> or <code>false</code>.</li>
+    <li><code>prompt(message)</code> → Ask for input → returns string or <code>null</code>.</li>
+  </ul>
+
+
+</body>
+</html>

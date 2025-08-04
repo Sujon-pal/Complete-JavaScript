@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparison Operators</title>
+  <script src="script.js"></script>
+  <style>
+    body {
+      font-family: cursive;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 20px;
+    }
+    h1 {
+      color: #4CAF50;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #ffffff;
+      border-left: 5px solid #4CAF50;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .code {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      white-space: pre-wrap;
+      margin-top: 10px;
+    }
+    .note {
+      color: #d84315;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧮 Comparison Operators in JavaScript (In-Depth)</h1>
+
+  <div class="section">
+    <h2>1. == (Equal To)</h2>
+    <p>Compares values after doing <strong>type conversion</strong> (loose equality).</p>
+    <div class="code">
+let a = 5;
+let b = "5";
+console.log(a == b); // true (because "5" is converted to 5)
+    </div>
+    <p class="note">⚠️ Use with caution due to implicit type coercion.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. === (Strict Equal To)</h2>
+    <p>Compares value <strong>and type</strong>. No type conversion.</p>
+    <div class="code">
+let a = 5;
+let b = "5";
+console.log(a === b); // false (number !== string)
+    </div>
+    <p class="note">✅ Safer and recommended over ==.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. != (Not Equal To)</h2>
+    <p>Checks if values are not equal <strong>after type conversion</strong>.</p>
+    <div class="code">
+let a = 10;
+let b = "10";
+console.log(a != b); // false (they're equal after conversion)
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. !== (Strict Not Equal To)</h2>
+    <p>Checks if values are not equal or types are different.</p>
+    <div class="code">
+let a = 10;
+let b = "10";
+console.log(a !== b); // true (different types)
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. &gt; (Greater Than)</h2>
+    <p>Returns true if the left value is greater.</p>
+    <div class="code">
+console.log(7 > 5);   // true
+console.log(3 > 8);   // false
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. &lt; (Less Than)</h2>
+    <p>Returns true if the left value is smaller.</p>
+    <div class="code">
+console.log(4 < 10);  // true
+console.log(15 < 5);  // false
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. &gt;= (Greater Than or Equal To)</h2>
+    <p>True if the left value is greater or equal.</p>
+    <div class="code">
+console.log(10 >= 10);  // true
+console.log(12 >= 9);   // true
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. &lt;= (Less Than or Equal To)</h2>
+    <p>True if the left value is smaller or equal.</p>
+    <div class="code">
+console.log(5 <= 5);    // true
+console.log(3 <= 7);    // true
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>💡 Bonus Tip: Comparing Different Types</h2>
+    <p>When comparing numbers and strings, JavaScript tries to convert types automatically (unless you use ===).</p>
+    <div class="code">
+console.log("100" > 20);   // true → "100" converted to 100
+console.log("abc" > 5);    // false → "abc" can't be converted to number → NaN
+    </div>
+  </div>
+
+</body>
+</html>

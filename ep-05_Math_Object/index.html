@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📘 JavaScript Math Object - Complete Guide</title>
+    <script src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-decoration: underline;
+        }
+
+        .section {
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight {
+            background-color: #eaf8e5;
+            border-left: 4px solid #4CAF50;
+            padding: 5px;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .important {
+            font-weight: bold;
+            color: #e57373;
+        }
+
+        .code {
+            background-color: #2f2f2f;
+            color: #f1f1f1;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            border-radius: 5px;
+        }
+
+        .timestamp {
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📘 Complete Guide to JavaScript Math Object</h1>
+        <p>Learn all essential methods and operators</p>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2>Introduction</h2>
+            <p>Welcome! In this guide, we will cover important math operators, methods, and usage in JavaScript.</p>
+        </section>
+
+        <section class="section">
+            <h2>List All the Mathematical Operators</h2>
+            <ul>
+                <li>+</li>
+                <li>-</li>
+                <li>*</li>
+                <li>/</li>
+                <li>% (Remainder)</li>
+                <li>** (Exponentiation)</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Understand the Remainder Operator (%)</h2>
+            <p>The remainder operator returns the remainder after division.</p>
+            <div class="code">
+                <code>let remainder = 10 % 3; // 1</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Understand the Exponentiation Operator (**)</h2>
+            <p>The exponentiation operator raises the left-hand operand to the power of the right-hand operand.</p>
+            <div class="code">
+                <code>let result = 2 ** 3; // 8</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>JavaScript Math Object</h2>
+            <p>The <strong>Math</strong> object is a built-in object in JavaScript that provides properties and methods for mathematical constants and functions.</p>
+        </section>
+
+        <section class="section">
+            <h2>Math.sqrt() Method</h2>
+            <p>Returns the square root of a number.</p>
+            <div class="code">
+                <code>let result = Math.sqrt(16); // 4</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Math.pow() Method</h2>
+            <p>Returns the base raised to the exponent power.</p>
+            <div class="code">
+                <code>let result = Math.pow(2, 3); // 8</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Math.floor() Method </h2>
+            <p>Rounds a number down to the nearest integer.</p>
+            <div class="code">
+                <code>let result = Math.floor(4.9); // 4</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Math.ceil() Method</h2>
+            <p>Rounds a number up to the nearest integer.</p>
+            <div class="code">
+                <code>let result = Math.ceil(4.1); // 5</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Math.round() Method - Frequently Used!</h2>
+            <p>Rounds a number to the nearest integer.</p>
+            <div class="code">
+                <code>let result = Math.round(4.5); // 5</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Math.random() Method - Most Used!</h2>
+            <p>Returns a random number between 0 (inclusive) and 1 (exclusive).</p>
+            <div class="code">
+                <code>let randomNumber = Math.random(); // e.g., 0.875</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Use Math.random() and Math.floor() Together</h2>
+            <p>Generate a random integer between two values.</p>
+            <div class="code">
+                <code>let randomInt = Math.floor(Math.random() * 10); // 0 to 9</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Understand Infinity and NaN in JavaScript</h2>
+            <p>
+                <span class="highlight">Infinity</span> represents a number greater than any finite number.
+                <br>
+                <span class="highlight">NaN</span> stands for "Not-a-Number", used when a value is not a valid number.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Mathematical Constants in JavaScript</h2>
+            <p>The Math object provides constants such as <code>Math.PI</code>, <code>Math.E</code>, and others.</p>
+            <div class="code">
+                <code>let piValue = Math.PI; // 3.141592653589793</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Advanced Trigonometric Methods</h2>
+            <p>JavaScript Math object provides methods for trigonometric calculations such as sine, cosine, and tangent.</p>
+            <div class="code">
+                <code>
+                    let angle = Math.PI / 4; <br>
+                    let sinValue = Math.sin(angle); // 0.7071067811865475 <br>
+                    let cosValue = Math.cos(angle); // 0.7071067811865476 <br>
+                    let tanValue = Math.tan(angle); // 1
+                </code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Logarithmic Functions</h2>
+            <p>Logarithms are crucial for many algorithms, and JavaScript supports log calculations.</p>
+            <div class="code">
+                <code>
+                    let logValue = Math.log(10); // Natural logarithm, approximately 2.302585 <br>
+                    let log10Value = Math.log10(100); // Logarithm base 10, 2
+                </code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Math.trunc() Method</h2>
+            <p>The <code>Math.trunc()</code> method returns the integer part of a number by removing any fractional digits.</p>
+            <div class="code">
+                <code>let truncatedValue = Math.trunc(4.9); // 4</code>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Practice JS on freeCodeCamp</h2>
+            <p>Visit freeCodeCamp for interactive challenges to practice your JavaScript Math skills.</p>
+        </section>
+
+        <section class="section important">
+            <h2>Important Note</h2>
+            <p>Always remember that JavaScript math operations work with floating-point arithmetic, so consider using libraries like <strong>Decimal.js</strong> for high-precision calculations.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>📘 Learn More at <a href="https://www.freecodecamp.org/" target="_blank" style="color: white;">freeCodeCamp</a></p>
+    </footer>
+</body>
+</html>

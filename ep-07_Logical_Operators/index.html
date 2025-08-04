@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logical Operators in JavaScript</title>
+  <script src="sctipt.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #4CAF50;
+      text-align: center;
+    }
+
+    .section {
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-left: 5px solid #4CAF50;
+    }
+
+    .section h2 {
+      color: #4CAF50;
+      text-decoration: underline;
+    }
+
+    .code {
+      background-color: #2f2f2f;
+      color: #f1f1f1;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      white-space: pre-wrap;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Logical Operators in JavaScript</h1>
+
+  <div class="section">
+    <h2>1. AND Operator (&&) Example</h2>
+    <p>The <strong>AND operator (&&)</strong> returns <code>true</code> if both operands are true. Otherwise, it returns <code>false</code>.</p>
+    <div class="code">
+      <code>
+let age = 25; <br>
+let hasPermission = true; <br>
+let isMember = true; <br>
+console.log(age > 18 && hasPermission && isMember); // true <br>
+console.log(age > 30 && hasPermission && isMember); // false <br>
+console.log(age > 18 && !hasPermission && isMember); // false <br>
+      </code>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. OR Operator (||) Example</h2>
+    <p>The <strong>OR operator (||)</strong> returns <code>true</code> if at least one operand is true. Otherwise, it returns <code>false</code>.</p>
+    <div class="code">
+      <code>
+let age = 25; <br>
+let hasPermission = false; <br>
+let isMember = true; <br>
+console.log(age > 18 || hasPermission || isMember); // true <br>
+console.log(age < 18 || !hasPermission || isMember); // true <br>
+console.log(age < 18 || !hasPermission || !isMember); // false <br>
+      </code>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. NOT Operator (!) Example</h2>
+    <p>The <strong>NOT operator (!)</strong> inverts the boolean value of an expression.</p>
+    <div class="code">
+      <code>
+let hasPermission = false; <br>
+let isAdmin = true; <br>
+console.log(!hasPermission); // true <br>
+console.log(!isAdmin); // false <br>
+console.log(!(age > 18 && hasPermission)); // true <br>
+      </code>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Combining Logical Operators Example</h2>
+    <p>You can combine logical operators to create more complex conditions. Here's how:</p>
+    <div class="code">
+      <code>
+let age = 25; <br>
+let isAdmin = false; <br>
+let hasPermission = true; <br>
+let isMember = true; <br>
+console.log((age > 18 && hasPermission) || (isAdmin && isMember)); // true <br>
+console.log((age < 30 || isAdmin) && !hasPermission); // false <br>
+console.log((age > 18 || !isAdmin) && (hasPermission || isMember)); // true <br>
+      </code>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Truthy and Falsy Values with Logical Operators Example</h2>
+    <p>In JavaScript, <strong>truthy</strong> values are non-zero numbers, non-empty strings, and objects. <strong>Falsy</strong> values include <code>0</code>, <code>null</code>, <code>undefined</code>, and <code>NaN</code>.</p>
+    <div class="code">
+      <code>
+let user = { name: "John" }; <br>
+let age = 0; <br>
+let isLoggedIn = false; <br>
+console.log(user.name && age > 18 && isLoggedIn); // false <br>
+console.log(user.name && (age > 18 || isLoggedIn)); // "John" <br>
+console.log(!(age || isLoggedIn)); // true <br>
+      </code>
+    </div>
+  </div>
+
+  <footer>
+    <p>💻 Learn More About JavaScript | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators" style="color: white;" target="_blank">MDN Web Docs</a></p>
+  </footer>
+</body>
+</html>

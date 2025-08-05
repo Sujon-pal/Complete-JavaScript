@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JavaScript Switch Statement</title>
+  <script src="script.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f6ff;
+      color: #1e1e1e;
+      padding: 30px;
+      line-height: 1.8;
+    }
+
+    h1, h2 {
+      color: #00509e;
+    }
+
+    .box {
+      background: #ffffff;
+      padding: 20px;
+      border-left: 6px solid #007acc;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    pre {
+      background-color: #f7f7f7;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 16px;
+    }
+
+    code {
+      background: #e1ecf7;
+      padding: 3px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    strong {
+      color: #003366;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔁 JavaScript Switch Statement</h1>
+
+  <div class="box">
+    <h2>📌 What is a Switch Statement?</h2>
+    <p>
+      A <code>switch</code> statement is used when you want to perform different actions based on different values of a variable.
+    </p>
+    <p>
+      It's a cleaner way to replace multiple <code>if-else-if</code> statements.
+    </p>
+  </div>
+
+  <div class="box">
+    <h2>🧾 Syntax</h2>
+    <pre><code>switch(expression) {
+  case value1:
+    // code block
+    break;
+  case value2:
+    // code block
+    break;
+  default:
+    // default code block
+}</code></pre>
+    <p><strong>Note:</strong> <code>break</code> prevents the code from "falling through" to the next case.</p>
+  </div>
+
+  <div class="box">
+    <h2>✅ Example 1: Simple Day Checker (Beginner)</h2>
+    <pre><code>&lt;script&gt;
+  let day = 4;
+  let dayName = "";
+
+  switch(day) {
+    case 1:
+      dayName = "Sunday";
+      break;
+    case 2:
+      dayName = "Monday";
+      break;
+    case 3:
+      dayName = "Tuesday";
+      break;
+    case 4:
+      dayName = "Wednesday";
+      break;
+    case 5:
+      dayName = "Thursday";
+      break;
+    case 6:
+      dayName = "Friday";
+      break;
+    case 7:
+      dayName = "Saturday";
+      break;
+    default:
+      dayName = "Invalid day";
+  }
+
+  console.log("Today is " + dayName);
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <div class="box">
+    <h2>✅ Example 2: Calculator (Intermediate)</h2>
+    <pre><code>&lt;script&gt;
+  let a = 10, b = 5, operator = "*";
+  let result;
+
+  switch (operator) {
+    case "+":
+      result = a + b;
+      break;
+    case "-":
+      result = a - b;
+      break;
+    case "*":
+      result = a * b;
+      break;
+    case "/":
+      result = a / b;
+      break;
+    default:
+      result = "Invalid operator";
+  }
+
+  console.log("Result: " + result);
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <div class="box">
+    <h2>✅ Example 3: Grouping Multiple Cases (Advanced)</h2>
+    <pre><code>&lt;script&gt;
+  let grade = "B+";
+
+  switch (grade) {
+    case "A+":
+    case "A":
+      console.log("Excellent");
+      break;
+    case "B+":
+    case "B":
+      console.log("Very Good");
+      break;
+    case "C":
+      console.log("Passed");
+      break;
+    default:
+      console.log("Invalid Grade");
+  }
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <div class="box">
+    <h2>⚠️ Common Mistakes to Avoid</h2>
+    <ul>
+      <li>Forgetting <code>break</code> → causes fall-through (executes next case too).</li>
+      <li>Using <code>switch</code> for ranges like <code>x &gt; 10</code> (use <code>if-else</code> instead).</li>
+      <li>Not including <code>default</code> (good to have for unknown cases).</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>🤔 When to Use?</h2>
+    <ul>
+      <li><strong>Use switch</strong> when:</li>
+      <ul>
+        <li>You check for exact values (e.g. "Admin", 1, "A+")</li>
+        <li>You want to simplify long <code>if-else-if</code> chains</li>
+      </ul>
+      <li><strong>Use if-else</strong> when:</li>
+      <ul>
+        <li>You need to compare ranges or complex conditions</li>
+      </ul>
+    </ul>
+  </div>
+
+
+<div class="">
+   <h1>🛠 Debugging <code>break</code> in JavaScript</h1>
+
+  <div class="box">
+    <h2>📌 What Does <code>break</code> Do?</h2>
+    <ul>
+      <li>Exits a <code>switch</code>, <code>for</code>, <code>while</code>, or <code>do-while</code> loop immediately.</li>
+      <li>Prevents executing the rest of the code inside that block.</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2>❌ Common Bug: Forgetting <code>break</code> in switch</h2>
+    <p>If you forget to use <code>break</code>, the code will "fall through" to the next case unintentionally.</p>
+    <pre><code>&lt;script&gt;
+let fruit = "apple";
+
+switch (fruit) {
+  case "apple":
+    console.log("Apple selected");
+  case "banana":
+    console.log("Banana selected");
+  default:
+    console.log("Other fruit");
+}
+// Output:
+// Apple selected
+// Banana selected
+// Other fruit
+&lt;/script&gt;</code></pre>
+    <p>🛠 <strong>Fix:</strong> Add <code>break</code> after each case!</p>
+  </div>
+
+  <div class="box">
+    <h2>✅ Correct Use of break in switch</h2>
+    <pre><code>&lt;script&gt;
+let fruit = "apple";
+
+switch (fruit) {
+  case "apple":
+    console.log("Apple selected");
+    break;
+  case "banana":
+    console.log("Banana selected");
+    break;
+  default:
+    console.log("Other fruit");
+}
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <div class="box">
+    <h2>✅ Use of break in Loop</h2>
+    <p>Stop loop when condition is met.</p>
+    <pre><code>&lt;script&gt;
+for (let i = 1; i &lt;= 10; i++) {
+  if (i === 5) {
+    break; // Exit loop when i is 5
+  }
+  console.log(i);
+}
+// Output: 1 2 3 4
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <div class="box">
+    <h2>❌ Bug: break Used Outside Loop/Switch</h2>
+    <pre><code>&lt;script&gt;
+if (true) {
+  break; // ❌ SyntaxError: Illegal break statement
+}
+&lt;/script&gt;</code></pre>
+    <p>✅ <strong>Fix:</strong> Only use <code>break</code> inside <code>switch</code> or loops.</p>
+  </div>
+
+  <div class="box">
+    <h2>🔄 break vs continue</h2>
+    <ul>
+      <li><strong>break</strong>: Exits the loop/switch entirely.</li>
+      <li><strong>continue</strong>: Skips current iteration and moves to the next one.</li>
+    </ul>
+    <pre><code>&lt;script&gt;
+for (let i = 1; i &lt;= 5; i++) {
+  if (i === 3) continue;
+  console.log(i);
+}
+// Output: 1 2 4 5
+&lt;/script&gt;</code></pre>
+  </div>
+</div>
+
+
+  <div class="box">
+    <h2>🧠 Summary Tips</h2>
+    <ul>
+      <li><code>switch</code> only checks for <code>===</code> (strict equality)</li>
+      <li>Always use <code>break</code> unless you want to fall-through</li>
+      <li><code>default</code> works like <code>else</code></li>
+      <li>Group multiple cases to reduce repetition</li>
+    </ul>
+  </div>
+
+</body>
+</html>

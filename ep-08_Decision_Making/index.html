@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Optimizing Decision Making in JavaScript</title>
+  <script src="script.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f7ff;
+      color: #333;
+      padding: 30px;
+      line-height: 1.7;
+    }
+
+    h1, h2 {
+      color: #003366;
+    }
+
+    .section {
+      background: #ffffff;
+      border-left: 6px solid #007acc;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 12px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 16px;
+    }
+
+    code {
+      background: #e8f0fe;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📘 Optimizing Decision Making in JavaScript</h1>
+
+  <div class="section">
+    <h2>🔹 What is Decision Making?</h2>
+    <p>In JavaScript, <code>if</code>, <code>else if</code>, and <code>else</code> are used to control the flow of your program based on conditions.</p>
+  </div>
+
+  <div class="section">
+    <h2>✅ Basic If-Else Syntax</h2>
+    <pre><code>if (condition) {
+  // code if true
+} else if (anotherCondition) {
+  // code if second condition is true
+} else {
+  // code if all above conditions fail
+}</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>✅ Example 1: Simple If-Else</h2>
+    <p>Check whether a number is positive, negative, or zero.</p>
+    <pre><code>&lt;script&gt;
+  let number = -3;
+  if (number &gt; 0) {
+    console.log("Positive");
+  } else if (number &lt; 0) {
+    console.log("Negative");
+  } else {
+    console.log("Zero");
+  }
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>✅ Example 2: Grading System (Else If Chain)</h2>
+    <pre><code>&lt;script&gt;
+  let score = 83;
+  if (score &gt;= 90) {
+    console.log("Grade: A+");
+  } else if (score &gt;= 80) {
+    console.log("Grade: A");
+  } else if (score &gt;= 70) {
+    console.log("Grade: B");
+  } else if (score &gt;= 60) {
+    console.log("Grade: C");
+  } else {
+    console.log("Fail");
+  }
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>✅ Why Use Else If and Else?</h2>
+    <ul>
+      <li>Prevents unnecessary checks</li>
+      <li>Improves performance</li>
+      <li>Makes code cleaner and easier to debug</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>✅ Example 3: Login Validation (Practical Use)</h2>
+    <pre><code>&lt;script&gt;
+  let userInput = "admin";
+  let userPass = "1234";
+
+  if (userInput === "" || userPass === "") {
+    console.log("Username or password cannot be empty");
+  } else if (userInput === "admin" &amp;&amp; userPass === "1234") {
+    console.log("Login successful!");
+  } else {
+    console.log("Login failed");
+  }
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>✅ Optimizing If-Else Conditions</h2>
+    <ul>
+      <li>Check the most likely or important condition first</li>
+      <li>Use <code>else</code> as a catch-all default</li>
+      <li>Avoid duplicate or overlapping conditions</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>⚠️ Unoptimized vs Optimized Comparison</h2>
+    <h3>❌ Bad:</h3>
+    <pre><code>if (score &gt;= 70) {
+  console.log("Grade B");
+}
+if (score &gt;= 80) {
+  console.log("Grade A");
+}
+if (score &gt;= 90) {
+  console.log("Grade A+");
+}</code></pre>
+    <p>✔ This will print multiple grades for high scores.</p>
+
+    <h3>✅ Good:</h3>
+    <pre><code>if (score &gt;= 90) {
+  console.log("Grade A+");
+} else if (score &gt;= 80) {
+  console.log("Grade A");
+} else if (score &gt;= 70) {
+  console.log("Grade B");
+}</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>✅ Switch vs If-Else</h2>
+    <p>If you're checking **fixed values**, use <code>switch</code>. If you're checking **ranges or complex conditions**, use <code>if-else</code>.</p>
+    <pre><code>&lt;script&gt;
+  let role = "admin";
+  switch (role) {
+    case "admin":
+      console.log("Access granted");
+      break;
+    case "user":
+      console.log("Limited access");
+      break;
+    default:
+      console.log("No access");
+  }
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>✅ Truthy & Falsy in Conditions</h2>
+    <p>Falsy values (treated as <code>false</code> in conditions):</p>
+    <ul>
+      <li><code>false</code></li>
+      <li><code>0</code></li>
+      <li><code>""</code></li>
+      <li><code>null</code></li>
+      <li><code>undefined</code></li>
+      <li><code>NaN</code></li>
+    </ul>
+    <pre><code>&lt;script&gt;
+  let value = "";
+  if (!value) {
+    console.log("Value is empty or false");
+  }
+&lt;/script&gt;</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>✅ Use of Quotes in JavaScript</h2>
+    <p>You can use either <code>'single'</code> or <code>"double"</code> quotes in strings. Consistency is important. Avoid mixing them.</p>
+    <pre><code>let msg1 = 'Hello';
+let msg2 = "World";</code></pre>
+  </div>
+
+<div class="section">
+    <h2>🧩 Nested If-Else Statement in JavaScript</h2>
+    <p>A <b>nested if-else</b> means an <code>if</code> or <code>else</code> block that contains another <code>if-else</code> inside it.</p>
+    <p>It is used when you need to make a **decision inside another decision**.</p>
+
+    <h3>🔹 Syntax:</h3>
+    <pre><code>if (condition1) {
+  if (condition2) {
+    // code when both condition1 and condition2 are true
+  } else {
+    // code when condition1 is true, but condition2 is false
+  }
+} else {
+  // code when condition1 is false
+}</code></pre>
+
+    <h3>✅ Example: Voter Eligibility Check (With Nested If)</h3>
+    <pre><code>&lt;script&gt;
+  let age = 20;
+  let hasVoterID = true;
+
+  if (age >= 18) {
+    if (hasVoterID) {
+      console.log("✅ You are eligible to vote.");
+    } else {
+      console.log("❌ You need a voter ID to vote.");
+    }
+  } else {
+    console.log("❌ You are not eligible to vote.");
+  }
+&lt;/script&gt;</code></pre>
+
+    <h3>✅ Real-life Use Case: Student Exam Check</h3>
+    <p>First check if student appeared in exam. Then, based on marks, assign grade.</p>
+    <pre><code>&lt;script&gt;
+  let attendedExam = true;
+  let marks = 76;
+
+  if (attendedExam) {
+    if (marks >= 80) {
+      console.log("Grade: A");
+    } else if (marks >= 60) {
+      console.log("Grade: B");
+    } else {
+      console.log("Grade: C");
+    }
+  } else {
+    console.log("Result: Absent");
+  }
+&lt;/script&gt;</code></pre>
+
+    <h3>✅ Tips for Writing Nested If-Else:</h3>
+    <ul>
+      <li>Use nested if only when it logically makes sense</li>
+      <li>Keep levels of nesting minimal (2 or 3 max)</li>
+      <li>If nesting gets too deep, consider using functions or switch-case</li>
+    </ul>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Objects - Beginner to Advanced</title>
+    <script src="script.js"></script>
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f7f9fc;
+        color: #333;
+      }
+      header {
+        background-color: #4b6cb7;
+        background-image: linear-gradient(to right, #182848, #4b6cb7);
+        color: white;
+        padding: 20px 40px;
+        text-align: center;
+        border-bottom: 5px solid #eee;
+      }
+      main {
+        padding: 30px 60px;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #1d2b38;
+      }
+      section {
+        margin-bottom: 40px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      }
+      code {
+        background: #eee;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        color: #c7254e;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 15px;
+        border-left: 5px solid #4b6cb7;
+        overflow-x: auto;
+      }
+      .note {
+        background: #e3f2fd;
+        border-left: 5px solid #2196f3;
+        padding: 10px 15px;
+        margin-top: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>JavaScript Objects Explained</h1>
+      <p>Everything you need to know about JS objects !</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>1. What is an Object?</h2>
+        <p>
+          An object is a collection of properties. Each property is a key-value
+          pair.
+        </p>
+        <pre><code>const person = {
+  name: "Sujon",
+  age: 25,
+  isStudent: true
+};</code></pre>
+        <div class="note">
+          🔹 Keys are always strings. Values can be any data type: string,
+          number, array, function, etc.
+        </div>
+      </section>
+
+      <section>
+        <h2>2. Creating Objects</h2>
+        <ul>
+          <li><strong>Object Literal</strong> (most common)</li>
+          <li><strong>Constructor Function</strong></li>
+          <li><strong>Object.create()</strong></li>
+          <li><strong>Class Syntax</strong> (ES6+)</li>
+        </ul>
+
+        <pre><code>// Object Literal
+const car = {
+  brand: "Toyota",
+  model: "Corolla"
+};
+
+// Constructor
+function Book(title, author) {
+  this.title = title;
+  this.author = author;
+}
+const b1 = new Book("JS Guide", "John");
+
+// Object.create()
+const base = { type: "base" };
+const derived = Object.create(base);
+
+// Class Syntax
+class User {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+const u1 = new User("Sujon", 25);</code></pre>
+      </section>
+
+      <section>
+        <h2>3. Accessing Properties</h2>
+        <pre><code>console.log(person.name);       // Dot notation
+console.log(person["age"]);     // Bracket notation</code></pre>
+        <div class="note">
+          💡 Use bracket notation when keys are dynamic or have special
+          characters.
+        </div>
+      </section>
+
+      <section>
+        <h2>4. Adding / Updating / Deleting Properties</h2>
+        <pre><code>person.email = "sujon@mail.com";    // Add
+person.age = 26;                    // Update
+delete person.isStudent;           // Delete</code></pre>
+      </section>
+
+      <section>
+        <h2>5. Nested Objects</h2>
+        <pre><code>const student = {
+  name: "Sujon",
+  address: {
+    city: "Sylhet",
+    zip: 3100
+  }
+};
+console.log(student.address.city);</code></pre>
+      </section>
+
+      <section>
+        <h2>6. Looping through Objects</h2>
+        <pre><code>for (let key in person) {
+  console.log(key + ": " + person[key]);
+}
+
+Object.keys(person);     // Array of keys
+Object.values(person);   // Array of values
+Object.entries(person);  // Array of [key, value]</code></pre>
+      </section>
+
+      <section>
+        <h2>7. Object Methods</h2>
+        <pre><code>const user = {
+  name: "Sujon",
+  greet: function() {
+    return "Hello " + this.name;
+  }
+};
+console.log(user.greet());</code></pre>
+      </section>
+
+      <section>
+        <h2>8. The "this" Keyword</h2>
+        <p>"this" refers to the current object context.</p>
+        <pre><code>const obj = {
+  name: "Pal",
+  show: function() {
+    console.log(this.name);  // Refers to obj
+  }
+};</code></pre>
+      </section>
+
+      <section>
+        <h2>9. Object Destructuring</h2>
+        <pre><code>const { name, age } = person;
+console.log(name);</code></pre>
+      </section>
+
+      <section>
+        <h2>10. Spread and Rest with Objects</h2>
+        <pre><code>const obj1 = { a: 1, b: 2 };
+const obj2 = { ...obj1, c: 3 };   // Spread
+function show({ a, ...rest }) {
+  console.log(rest);
+}</code></pre>
+      </section>
+
+      <section>
+        <h2>11. Object.freeze() and Object.seal()</h2>
+        <pre><code>const config = { debug: true };
+Object.freeze(config);  // Can't modify or add
+Object.seal(config);    // Can't add or delete, but can update</code></pre>
+      </section>
+
+      <section>
+        <h2>12. Object.assign()</h2>
+        <p>Used to copy properties from one or more objects to another.</p>
+        <pre><code>const target = {};
+const source = { x: 10 };
+Object.assign(target, source);</code></pre>
+      </section>
+
+      <section>
+        <h2>13. Comparing Objects</h2>
+        <pre><code>const objA = { x: 1 };
+const objB = { x: 1 };
+console.log(objA === objB); // false (different references)</code></pre>
+      </section>
+
+      <section>
+        <h2>14. Optional Chaining & Nullish Coalescing</h2>
+        <pre><code>const data = { user: { name: "Sujon" } };
+console.log(data.user?.name);         // Safe access
+console.log(data.age ?? "Unknown");   // Fallback value</code></pre>
+      </section>
+
+      <section>
+        <h2>15. JSON and Objects</h2>
+        <pre><code>const obj = { name: "Sujon" };
+const str = JSON.stringify(obj);  // Convert to string
+const back = JSON.parse(str);     // Convert to object</code></pre>
+      </section>
+
+      <section>
+        <h2>✔ Summary</h2>
+        <ul>
+          <li>Objects hold key-value pairs.</li>
+          <li>Used everywhere in JS: DOM, APIs, data, etc.</li>
+          <li>Mastering objects is essential for OOP & frameworks.</li>
+        </ul>
+        <div class="note">
+          ✅ Practice creating and manipulating objects in the console or a
+          playground like CodePen or JSFiddle.
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

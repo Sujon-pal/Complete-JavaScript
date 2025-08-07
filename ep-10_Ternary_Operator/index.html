@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ternary Operator in JavaScript</title>
+  <script src="script.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f9ff;
+      padding: 30px;
+      color: #222;
+      line-height: 1.7;
+    }
+    h1, h2 {
+      color: #005a9e;
+    }
+    .section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-left: 5px solid #0078d4;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    code {
+      background: #eaf3fc;
+      padding: 3px 6px;
+      border-radius: 5px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #007acc;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌟 JavaScript Ternary Operator - Beginner to Advanced</h1>
+
+  <div class="section">
+    <h2>🔰 What is a Ternary Operator?</h2>
+    <p>
+      The <strong>ternary operator</strong> is a concise way to write conditional expressions. It's a shorthand for the <code>if-else</code> statement.
+    </p>
+    <p><strong>Syntax:</strong></p>
+    <pre><code>condition ? value_if_true : value_if_false;</code></pre>
+  </div>
+
+  <div class="section">
+    <h2>✅ Simple Example</h2>
+    <pre><code>
+let isRaining = true;
+let result = isRaining ? "Take an umbrella." : "Enjoy the sunshine!";
+console.log(result); // Output: Take an umbrella.
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>🧠 Using Ternary for Number Check</h2>
+    <p>Is the number even or odd?</p>
+    <pre><code>
+let num = 7;
+let result = (num % 2 === 0) ? "Even" : "Odd";
+console.log("The number is " + result);
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>🔍 Real-Time Input Example</h2>
+    <p>Enter your age to check voting eligibility:</p>
+    <input type="number" id="ageInput" placeholder="Enter your age">
+    <button onclick="checkVoting()">Check</button>
+    <p id="voteResult"></p>
+
+    <script>
+      function checkVoting() {
+        const age = document.getElementById("ageInput").value;
+        const result = age >= 18 ? "✅ You can vote." : "❌ You are too young to vote.";
+        document.getElementById("voteResult").innerText = result;
+      }
+    </script>
+  </div>
+
+  <div class="section">
+    <h2>⚙️ Nested Ternary (Advanced)</h2>
+    <p>Assign grades based on score:</p>
+    <pre><code>
+let score = 78;
+let grade = score >= 90 ? "A" :
+            score >= 80 ? "B" :
+            score >= 70 ? "C" :
+            score >= 60 ? "D" : "F";
+console.log("Grade:", grade); // Output: C
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Ternary vs If-Else</h2>
+    <p><strong>Use ternary</strong> when:</p>
+    <ul>
+      <li>✔ Condition is simple</li>
+      <li>✔ You need to assign a value based on a condition</li>
+    </ul>
+    <p><strong>Avoid ternary</strong> when:</p>
+    <ul>
+      <li>❌ Conditions are complex or deeply nested</li>
+      <li>❌ Multiple steps or logic blocks needed</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>💡 Real-World Use: Display Greeting</h2>
+    <pre><code>
+let hour = new Date().getHours();
+let greeting = hour < 12 ? "Good Morning" : hour < 18 ? "Good Afternoon" : "Good Evening";
+console.log(greeting);
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>✅ Best Practices</h2>
+    <ul>
+      <li>✅ Prefer readability over compactness</li>
+      <li>✅ Use for return values, assignments, and JSX (React)</li>
+      <li>✅ Avoid using multiple ternaries in one line</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📌 Summary</h2>
+    <ul>
+      <li><code>condition ? true_value : false_value</code></li>
+      <li>Useful for quick checks and assignments</li>
+      <li>Can be nested but may reduce clarity</li>
+    </ul>
+  </div>
+
+</body>
+</html>

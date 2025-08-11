@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced JS Notes: Object.freeze() vs Object.seal()</title>
+  <script src="script.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ6iJ1qRWEF+4g9b5+eU7t1ft3gbfQDKXv+mp/JXxIYv97uEed6sneLh+yR9" crossorigin="anonymous">
+  
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #2c3e50;
+      color: #ecf0f1;
+    }
+
+    header {
+      background-color: #16a085;
+      background-image: linear-gradient(to right, #1abc9c, #16a085);
+      color: white;
+      padding: 30px 40px;
+      text-align: center;
+      border-bottom: 5px solid #95a5a6;
+    }
+
+    main {
+      padding: 30px 60px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #ecf0f1;
+    }
+
+    section {
+      margin-bottom: 40px;
+      background: #34495e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    code {
+      background: #34495e;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #e74c3c;
+    }
+
+    pre {
+      background: #1a252f;
+      padding: 15px;
+      border-left: 5px solid #1abc9c;
+      overflow-x: auto;
+    }
+
+    .note {
+      background: #16a085;
+      border-left: 5px solid #1abc9c;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+
+    .btn-custom {
+      background-color: #1abc9c;
+      color: white;
+      border: none;
+    }
+
+    .btn-custom:hover {
+      background-color: #16a085;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>📘 JavaScript Notes: Object.freeze() vs Object.seal()</h1>
+  </header>
+
+  <main>
+    <!-- Introduction Section -->
+    <section>
+      <h2>🔹 <strong>Object.freeze()</strong></h2>
+      <ul>
+        <li>Makes an object <strong>completely immutable</strong>.</li>
+        <li><strong>Prevents</strong>:
+          <ul>
+            <li>Adding properties ❌</li>
+            <li>Deleting properties ❌</li>
+            <li>Modifying existing values ❌</li>
+          </ul>
+        </li>
+        <li>Object becomes <strong>non-extensible</strong> and read-only.</li>
+      </ul>
+    </section>
+
+    <!-- Seal Section -->
+    <section>
+      <h2>🔹 <strong>Object.seal()</strong></h2>
+      <ul>
+        <li>Prevents adding and deleting properties ❌.</li>
+        <li><strong>Allows modifying existing values ✅</strong>.</li>
+        <li>Object becomes <strong>non-extensible</strong> but not immutable.</li>
+      </ul>
+    </section>
+
+    <!-- Examples Section -->
+    <section>
+      <h3>🧪 <strong>Examples</strong></h3>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Object.freeze() Example</h4>
+              <pre><code>
+const user = {
+  name: "Sujon",
+  age: 25
+};
+
+Object.freeze(user);
+
+user.age = 30;           // ❌ Doesn't change
+user.city = "Dhaka";     // ❌ Won't add
+delete user.name;        // ❌ Won't delete
+
+console.log(user); // { name: "Sujon", age: 25 }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Object.seal() Example</h4>
+              <pre><code>
+const product = {
+  name: "Laptop",
+  price: 1000
+};
+
+Object.seal(product);
+
+product.price = 1200;    // ✅ Allowed
+product.brand = "HP";    // ❌ Not allowed
+delete product.name;     // ❌ Not allowed
+
+console.log(product); // { name: "Laptop", price: 1200 }
+              </code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Topics Section -->
+    <section>
+      <h3>🚀 <strong>Advanced Topics</strong></h3>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5>✅ 1. Deep Freeze (Nested Freeze)</h5>
+              <p><code>Object.freeze()</code> only works on the top-level. For nested objects, we must recursively freeze:</p>
+              <pre><code>
+function deepFreeze(obj) {
+  Object.getOwnPropertyNames(obj).forEach(prop => {
+    if (typeof obj[prop] === 'object' && obj[prop] !== null) {
+      deepFreeze(obj[prop]);
+    }
+  });
+  return Object.freeze(obj);
+}
+
+const settings = {
+  theme: "dark",
+  options: {
+    fontSize: 14
+  }
+};
+
+deepFreeze(settings);
+settings.options.fontSize = 18; // ❌ Won't work
+
+console.log(settings.options.fontSize); // 14
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5>✅ 2. Check if Object is Frozen or Sealed</h5>
+              <pre><code>
+const obj = { a: 1 };
+Object.freeze(obj);
+
+console.log(Object.isFrozen(obj)); // true
+console.log(Object.isSealed(obj)); // true (freeze implies sealed)
+              </code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section>
+      <h3>📊 <strong>Comparison Table</strong></h3>
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Feature</th>
+            <th>preventExtensions()</th>
+            <th>seal()</th>
+            <th>freeze()</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Add properties</td>
+            <td>No ❌</td>
+            <td>No ❌</td>
+            <td>No ❌</td>
+          </tr>
+          <tr>
+            <td>Delete properties</td>
+            <td>Yes ✅</td>
+            <td>No ❌</td>
+            <td>No ❌</td>
+          </tr>
+          <tr>
+            <td>Modify existing values</td>
+            <td>Yes ✅</td>
+            <td>Yes ✅</td>
+            <td>No ❌</td>
+          </tr>
+          <tr>
+            <td>Completely immutable</td>
+            <td>No ❌</td>
+            <td>No ❌</td>
+            <td>Yes ✅</td>
+          </tr>
+          <tr>
+            <td>Nested support</td>
+            <td>No ❌</td>
+            <td>No ❌</td>
+            <td>No ❌ (Use deep freeze)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section>
+      <h3>🔍 <strong>Real-World Use Cases</strong></h3>
+      <ul>
+        <li><strong>freeze()</strong>:
+          <ul>
+            <li>Constants, Configs, Environment variables</li>
+            <li>Prevent accidental mutations in Redux/State</li>
+          </ul>
+        </li>
+        <li><strong>seal()</strong>:
+          <ul>
+            <li>Data models where structure must remain fixed</li>
+            <li>Secure API response objects</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Limitations Section -->
+    <section>
+      <h3>⚠️ <strong>Limitations</strong></h3>
+      <ul>
+        <li>Only shallow protection — nested objects aren't affected (unless deep frozen).</li>
+        <li>Works only on objects, not primitives.</li>
+        <li>Doesn't prevent function execution inside objects (e.g., methods).</li>
+      </ul>
+    </section>
+
+    <!-- Summary Section -->
+    <section>
+      <h3>📝 <strong>Summary</strong></h3>
+      <ul>
+        <li><code>Object.freeze()</code> → Lock everything (structure + values)</li>
+        <li><code>Object.seal()</code> → Lock structure, allow value changes</li>
+        <li><code>Object.preventExtensions()</code> → Block additions only</li>
+        <li>Use <strong>deep freeze</strong> for nested protection</li>
+        <li>Check immutability with <code>Object.isFrozen()</code> and <code>Object.isSealed()</code></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Bootstrap JS and Popper.js (for full Bootstrap functionality) -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybpyR1gPzS9bhdIdDZuHfB7gs3v9tImT99T2B0I51n1p6k5p2p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0m3R1p4sP7cq6sYO73E3PqF5S7duF4bHbJczmj8f7pke2Kb4" crossorigin="anonymous"></script>
+  
+</body>
+</html>
